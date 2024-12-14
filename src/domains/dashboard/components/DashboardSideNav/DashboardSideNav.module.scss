@@ -1,0 +1,19 @@
+.dashboard-sidenav {
+    height: 100%;
+    padding: 1rem;
+    border-right: 1px solid #e9e8e8;
+    background-color: #fff;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0;
+        color: #6c6b6b;
+
+        &>*:not(:last-child) {
+            margin-bottom: 1.25rem;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+// Margins
+.no-margin {
+    margin: 0;
+}
+
+.xsm-margin-top {
+    margin-top: .5rem;
+}
+
+.xsm-margin-left {
+    margin-left: .5rem;
+}
+
+.xsm-margin-right {
+    margin-right: .5rem;
+}
+
+.sm-margin-right {
+    margin-right: 1rem;
+}
+
+.sm-margin-top {
+    margin-top: 1rem;
+}
+
+.sm-margin-bottom {
+    margin-bottom: 1rem;
+}
+
+.md-margin-bottom {
+    margin-bottom: 2rem;
+}
+
+// Paddings 
+.sm-pad-top-bottom {
+    padding: 1rem 0;
+}
+
+// Flex classes
+.flex-row-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-left-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-left-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+// Widths
+.width-50 {
+    width: 50%;
+}
+
+// Font weights
+.font-weight-400 {
+    font-weight: 400;
+}

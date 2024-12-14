@@ -1,0 +1,27 @@
+@use './assets/scss/utilities' as *;
+@use './assets/scss/typography' as *;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-size: 14px;
+  color: #42a5f5;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
