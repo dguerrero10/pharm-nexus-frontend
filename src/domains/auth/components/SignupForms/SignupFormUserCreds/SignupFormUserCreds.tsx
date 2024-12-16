@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import { Button, CircularProgress } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -16,6 +14,7 @@ import { signUpCredsSchema } from "../../types/schema-types";
 import { useMutation } from "@tanstack/react-query";
 import { handleApiError } from "../../../../../util/funcs/handleApiError";
 import { useState } from "react";
+import { publicClient } from "../../../../../util/clients/apiClient";
 
 const SignupFormUserCreds = () => {
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const SignupFormUserCreds = () => {
 
   const mutation = useMutation({
     mutationFn: (formData: { email: string; password: string }) => {
-      return axios.post("http://localhost:3000/users/create-user", formData);
+      return publicClient.post("/users/create-user", formData);
     },
   });
 
@@ -47,7 +46,7 @@ const SignupFormUserCreds = () => {
         navigate("/auth/sign-up/add-insurance");
       }
     } catch (error: any) {
-      console.error(error)
+      console.error(error);
       const errorMessage = handleApiError(error);
       setSnackbarError(errorMessage);
     }
@@ -104,7 +103,9 @@ const SignupFormUserCreds = () => {
           </div>
         </>
       )}
-      {mutation.isError && snackbarError && <ErrorSnackbar message={snackbarError} /> }
+      {mutation.isError && snackbarError && (
+        <ErrorSnackbar message={snackbarError} />
+      )}
     </motion.form>
   );
 };

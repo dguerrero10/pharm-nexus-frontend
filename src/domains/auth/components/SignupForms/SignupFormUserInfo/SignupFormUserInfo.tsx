@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import InputField from "../../../../../ui/InputField/InputField";
 import classes from "./SignupFormUserInfo.module.scss";
 
@@ -9,7 +11,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SignUpFormInfoValues } from "../../types/auth-form-types";
 import { signUpInfoSchema } from "../../types/schema-types";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 
 const SignupFormUserInfo = () => {
   const mutation = useMutation({

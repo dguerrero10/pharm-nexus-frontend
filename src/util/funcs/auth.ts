@@ -1,7 +1,7 @@
-import axios from "axios";
-
 import { redirect } from "react-router-dom";
 import { AuthTokens } from "../interfaces/auth-tokens-interface";
+
+import { publicClient } from "../clients/apiClient";
 
 export const setAuthTokens = (authTokens: AuthTokens) => {
   localStorage.setItem("tokens", JSON.stringify(authTokens));
@@ -19,18 +19,26 @@ export const getAuthTokens = (): AuthTokens => {
   }
 };
 
-export const verifyAuthTokensLoader = async () => {
+export const clearAuthTokens = () => {
+  localStorage.removeItem("tokens");
+  return redirect("/auth/login");
+};
+
+export const isValidTokens = async (): Promise<boolean | undefined> => {
   try {
     const authTokens: AuthTokens = getAuthTokens();
+
     if (!authTokens || !authTokens.accessToken || !authTokens.refreshToken) {
-      return redirect("/auth/login");
+      return false;
     }
 
-    return await axios.post(
-      "http://localhost:3000/auth/validate-tokens",
-      authTokens
-    );
+    const result = await publicClient.post("/auth/validate-tokens", authTokens);
+    
+    if (result?.status === 200) {
+      return true;
+    }
   } catch (error) {
-    return redirect("/auth/login");
+    console.error(error);
+    return false;
   }
 };

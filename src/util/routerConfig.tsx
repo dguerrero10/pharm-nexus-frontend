@@ -7,7 +7,7 @@ import SignupFormUserInfo from "../domains/auth/components/SignupForms/SignupFor
 import SignUpFormUserInsurance from "../domains/auth/components/SignupForms/SignupFormUserInsurance/SignupFormUserInsurance";
 import DashboardRootPage from "../domains/dashboard/pages/DashboardRootPage/DashboardRootPage";
 import DashboardFeaturePage from "../domains/dashboard/pages/DashboardFeaturePage/DashboardFeaturePage";
-import { verifyAuthTokensLoader } from "./funcs/auth";
+import { validateUserLoader } from "./funcs/loaders";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,11 @@ export const router = createBrowserRouter([
         element: <SignupPage />,
         children: [
           { index: true, element: <SignupFormUserCreds /> },
-          { path: "add-information", element: <SignupFormUserInfo /> },
+          {
+            path: "add-information",
+            element: <SignupFormUserInfo />,
+            loader: validateUserLoader(true),
+          },
           { path: "add-insurance", element: <SignUpFormUserInsurance /> },
         ],
       },
@@ -34,7 +38,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardFeaturePage />,
-        loader: verifyAuthTokensLoader,
+        loader: validateUserLoader(),
       },
     ],
   },

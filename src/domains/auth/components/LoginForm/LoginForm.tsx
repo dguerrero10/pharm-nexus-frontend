@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import { Link, useNavigate } from "react-router-dom";
 import { Button, CircularProgress, FormGroup } from "@mui/material";
 
@@ -20,6 +18,7 @@ import { useState } from "react";
 import { handleApiError } from "../../../../util/funcs/handleApiError";
 import { setAuthTokens } from "../../../../util/funcs/auth";
 import { AuthTokens } from "../../../../util/interfaces/auth-tokens-interface";
+import { publicClient } from "../../../../util/clients/apiClient";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const LoginForm = () => {
 
   const mutation = useMutation({
     mutationFn: (formData: LoginFormValues) => {
-      return axios.post("http://localhost:3000/auth/login", formData);
+      return publicClient.post("/auth/login", formData);
     },
   });
 
