@@ -3,12 +3,12 @@ import { authClient } from "../clients/apiClient";
 export const getIsUserSignupComplete = async () => {
   try {
     const result = await authClient.get(
-      "/users/get-is-user-signup-complete"
+      "/users/is-signup-complete"
     );
 
     const isCase: { signupcomplete: string } = result.data;
 
-    if (isCase?.signupcomplete.toUpperCase() === "N") {
+    if (isCase && isCase?.signupcomplete.toUpperCase() === "N") {
       return false;
     }
 

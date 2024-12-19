@@ -1,0 +1,48 @@
+.select {
+    width: 100%;
+    padding: 0.75rem 0;
+    border: none;
+    border-radius: 0.2em;
+    background-color: #f9f7f7;
+    border: 1px solid rgb(233, 233, 233);
+    font-size: 16px;
+    outline: none;
+    text-indent: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    appearance: none; /* Remove default dropdown arrow */
+  
+    &:focus {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+                  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+  
+    &::placeholder {
+      font-size: 13px;
+    }
+  }
+  
+  .select-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .select-label {
+    font-size: 14px;
+    color: #3b3b3b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .select-error {
+    border: 2px solid #ff1744;
+  
+    &-msg {
+      height: 8px;
+      color: #ff1744;
+      font-size: 12px;
+      margin-left: 0.25rem;
+      margin-top: 0.25rem;
+    }
+  }
+  

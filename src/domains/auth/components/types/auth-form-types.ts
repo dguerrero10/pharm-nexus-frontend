@@ -15,7 +15,7 @@ export type SignUpFormInfoValues = {
   streetAddress: string;
   city: string;
   zipCode: string;
-  state: string;
+  stateCode: string;
   dateOfBirth: string;
   phoneNumber: string;
 };

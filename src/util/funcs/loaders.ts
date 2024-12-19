@@ -2,7 +2,10 @@ import { redirect } from "react-router-dom";
 import { getIsUserSignupComplete } from "./userInfo";
 import { isValidTokens } from "./auth";
 
-export const validateUserLoader = (isOnAddInfoPage: boolean = false) => {
+export const validateUserLoader = (
+  isOnAddInfoPage: boolean = false,
+  isOnAddInsurancePage: boolean = false
+) => {
   return async () => {
     try {
       const [isTokensValid, isSignupComplete] = await Promise.all([
@@ -17,6 +20,10 @@ export const validateUserLoader = (isOnAddInfoPage: boolean = false) => {
       if (isTokensValid && !isSignupComplete) {
         if (isOnAddInfoPage) return; // Stay where we are.
         return redirect("/auth/sign-up/add-information?incomplete=true");
+      }
+
+      if (isTokensValid && isSignupComplete && isOnAddInsurancePage) {
+        return;
       }
 
       if (isTokensValid && isSignupComplete && !isOnAddInfoPage) {

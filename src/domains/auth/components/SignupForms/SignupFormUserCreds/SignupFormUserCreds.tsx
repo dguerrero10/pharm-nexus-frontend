@@ -15,6 +15,8 @@ import { useMutation } from "@tanstack/react-query";
 import { handleApiError } from "../../../../../util/funcs/handleApiError";
 import { useState } from "react";
 import { publicClient } from "../../../../../util/clients/apiClient";
+import { AuthTokens } from "../../../../../util/interfaces/auth-tokens-interface";
+import { setAuthTokens } from "../../../../../util/funcs/auth";
 
 const SignupFormUserCreds = () => {
   const navigate = useNavigate();
@@ -37,14 +39,17 @@ const SignupFormUserCreds = () => {
 
   const onSubmit: SubmitHandler<SignUpFormCredsValues> = async (data) => {
     try {
-      await mutation.mutateAsync({
+      const result = await mutation.mutateAsync({
         email: data.email,
         password: data.password,
       });
 
-      if (mutation.isSuccess) {
-        navigate("/auth/sign-up/add-insurance");
+      if (result) {
+        const data = result.data as AuthTokens;
+        setAuthTokens(data);
+        navigate("/auth/sign-up/add-information");
       }
+      
     } catch (error: any) {
       console.error(error);
       const errorMessage = handleApiError(error);
@@ -89,7 +94,7 @@ const SignupFormUserCreds = () => {
         {...register("confirmPassword")}
         error={errors.confirmPassword && errors.confirmPassword.message}
       />
-      {mutation.isPending && <CircularProgress />}
+      {mutation.isPending && mutation.isSuccess && <CircularProgress />}
       {!mutation.isPending && (
         <>
           <Button type="submit" color="primary" variant="contained">

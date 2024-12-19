@@ -42,13 +42,16 @@ export const signUpInfoSchema = yup.object({
         .required("City is required"),
     zipCode: yup
         .string()
-        .max(6, "Zip Code cannot be more than 6 numbers")
+        .min(4, "Zip Code must be at least 5 digits")
+        .max(10, "Zip Code cannot be more than 10 digits")
         .required("Zip Code is required"),
-    state: yup
+    stateCode: yup
         .string()
         .required("State is required"),
     dateOfBirth: yup
         .string()
+        .min(10, "Date of Birth is invalid")
+        .max(10, "Date of Birth is invalid")
         .required("Date of Birth is required"),
     phoneNumber: yup
         .string()

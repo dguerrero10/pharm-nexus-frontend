@@ -1,4 +1,4 @@
-import { Children } from "../../../../common/types/common-types";
+import { Children } from "../../../../util/interfaces/common-types";
 
 import classes from "./DashboardLayout.module.scss";
 

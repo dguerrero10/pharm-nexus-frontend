@@ -24,9 +24,13 @@ export const router = createBrowserRouter([
           {
             path: "add-information",
             element: <SignupFormUserInfo />,
-            loader: validateUserLoader(true),
+            loader: validateUserLoader(true, false),
           },
-          { path: "add-insurance", element: <SignUpFormUserInsurance /> },
+          {
+            path: "add-insurance",
+            element: <SignUpFormUserInsurance />,
+            loader: validateUserLoader(false, true),
+          },
         ],
       },
     ],

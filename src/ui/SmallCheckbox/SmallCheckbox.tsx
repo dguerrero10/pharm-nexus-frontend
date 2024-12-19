@@ -1,5 +1,5 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
-import { CheckBoxProps } from "../../common/types/common-types";
+import { CheckBoxProps } from "../../util/interfaces/common-types";
 import { checkboxStyles } from "./smallCheckboxStyles";
 
 const SmallCheckbox: React.FC<CheckBoxProps> = ({ label }) => {

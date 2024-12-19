@@ -27,7 +27,6 @@ export const clearAuthTokens = () => {
 export const isValidTokens = async (): Promise<boolean | undefined> => {
   try {
     const authTokens: AuthTokens = getAuthTokens();
-
     if (!authTokens || !authTokens.accessToken || !authTokens.refreshToken) {
       return false;
     }

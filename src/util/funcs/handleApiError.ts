@@ -6,7 +6,7 @@ export const handleApiError = (error: any) => {
   if (errorCode && isErrorCodeValid(errorCode)) {
     switch (errorCode) {
       case ErrorCodes.USER_EMAIL_CONFLICT:
-        return "This email is already in use. Please try a differnt one.";
+        return "This email is already in use. Please try a different one.";
       case ErrorCodes.INVALID_CREDENTIALS:
         return "Invalid credentials provided.";
       case ErrorCodes.USER_NOT_FOUND:

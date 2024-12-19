@@ -86,7 +86,7 @@ const LoginForm = () => {
         </FormGroup>
         <Link to="/auth/forgot-password">Forgot password?</Link>
       </div>
-      {mutation.isPending && <CircularProgress />}
+      {mutation.isPending && mutation.isSuccess && <CircularProgress />}
       {!mutation.isPending && (
         <>
           <Button type="submit" color="primary" variant="contained">
