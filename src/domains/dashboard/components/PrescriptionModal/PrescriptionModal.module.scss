@@ -1,0 +1,13 @@
+.prescription-modal {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    &__row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow-wrap: break-word; 
+    }
+}

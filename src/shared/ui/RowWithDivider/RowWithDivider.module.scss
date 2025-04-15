@@ -1,0 +1,23 @@
+.row_with_divider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--two-item {
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.p1 {
+    width: 100%;
+    text-align: left;
+}
+
+.p2 {
+    width: 100%;
+    text-align: left;
+}

@@ -1,0 +1,9 @@
+.lg-pad-rl-wrapper {
+    padding: 0 4rem;
+}
+
+@media screen and (max-width: 769px) {
+    .lg-pad-rl-wrapper {
+        padding: 0;
+    }
+}

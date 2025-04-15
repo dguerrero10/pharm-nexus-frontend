@@ -2,9 +2,9 @@ import { ThemeProvider } from "@emotion/react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import theme from "./ui/global-theme";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./util/routerConfig";
+import { router } from "./shared/util/routerConfig";
+import theme from "./shared/ui/global-theme";
 
 export const queryClient = new QueryClient();
 

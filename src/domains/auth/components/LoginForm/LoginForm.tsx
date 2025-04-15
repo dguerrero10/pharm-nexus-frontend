@@ -1,24 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button, CircularProgress, FormGroup } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import InputField from "../../../../ui/InputField/InputField";
-import SmallCheckbox from "../../../../ui/SmallCheckbox/SmallCheckbox";
-import ErrorSnackbar from "../../../../ui/ErrorSnackbar/ErrorSnackbar";
 import classes from "./LoginForm.module.scss";
 
 import { motion } from "framer-motion";
-import { fadeUpAnimation } from "../../../../ui/animations/animationConfig";
-import { LoginFormValues } from "../types/auth-form-types";
-import { loginSchema } from "../types/schema-types";
+import { LoginFormValues } from "../../../../shared/util/types/auth-form.type";
+import { loginSchema } from "../../../../shared/util/types/schemas.type";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { handleApiError } from "../../../../util/funcs/handleApiError";
-import { setAuthTokens } from "../../../../util/funcs/auth";
-import { AuthTokens } from "../../../../util/interfaces/auth-tokens-interface";
-import { publicClient } from "../../../../util/clients/apiClient";
+import { handleApiError } from "../../../../shared/util/funcs/api/handleApiError";
+import { setAuthTokens } from "../../../../shared/util/funcs/auth";
+import { AuthTokens } from "../../../../shared/util/interfaces/auth-tokens.interface";
+import { publicClient } from "../../../../shared/util/clients/apiClient";
+import InputField from "../../../../shared/ui/InputField/InputField";
+import { fadeUpAnimation } from "../../../../shared/ui/animations/animationConfig";
+import ErrorSnackbar from "../../../../shared/ui/ErrorSnackbar/ErrorSnackbar";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -61,7 +60,7 @@ const LoginForm = () => {
     >
       <div className="flex-left-col">
         <h1 className="no-margin">Login</h1>
-        <p className="md-margin-bottom">Hi, Welcome back 👋</p>
+        <p className="md-margin-btm">Hi, Welcome back 👋</p>
       </div>
       <InputField
         label="Email"
@@ -80,10 +79,7 @@ const LoginForm = () => {
         {...register("password")}
         error={errors.password && errors.password.message}
       />
-      <div className="flex-between sm-margin-top">
-        <FormGroup>
-          <SmallCheckbox label="Remember me" />
-        </FormGroup>
+      <div className="flex-right-row">
         <Link to="/auth/forgot-password">Forgot password?</Link>
       </div>
       {mutation.isPending && mutation.isSuccess && <CircularProgress />}
@@ -92,7 +88,7 @@ const LoginForm = () => {
           <Button type="submit" color="primary" variant="contained">
             Login
           </Button>
-          <div className="flex-row-center sm-pad-top-bottom">
+          <div className="flex-row-center sm-pad-top-btm">
             <p>Not registered yet?</p>
             <Link to="/auth/sign-up" className="xsm-margin-left">
               Create an account

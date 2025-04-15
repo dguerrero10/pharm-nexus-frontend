@@ -1,40 +1,57 @@
 // Margins
 .no-margin {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .xsm-margin-top {
-    margin-top: .5rem;
+    margin-top: .5rem !important;
 }
 
 .xsm-margin-left {
-    margin-left: .5rem;
+    margin-left: .5rem !important;
 }
 
 .xsm-margin-right {
-    margin-right: .5rem;
+    margin-right: .5rem !important;
+}
+
+.xsm-margin-top-btm {
+    margin: .5rem 0;
+}
+
+.only-margin-btm {
+    margin: 0 0 .5rem 0;
 }
 
 .sm-margin-right {
-    margin-right: 1rem;
+    margin-right: 1rem !important;
 }
 
 .sm-margin-top {
-    margin-top: 1rem;
+    margin-top: 1rem !important;
 }
 
-.sm-margin-bottom {
-    margin-bottom: 1rem;
+.sm-margin-btm {
+    margin-bottom: 1rem !important;
 }
 
-.md-margin-bottom {
-    margin-bottom: 2rem;
+.md-margin-btm {
+    margin-bottom: 2rem !important;
+}
+
+.md-margin-top {
+    margin-top: 2rem !important;
 }
 
 // Paddings 
-.sm-pad-top-bottom {
-    padding: 1rem 0;
+.sm-pad-top-btm {
+    padding: 1rem 0 !important;
 }
+
+.xsm-pad {
+    padding: .5rem !important;
+}
+
 
 // Flex classes
 .flex-row-center {
@@ -64,6 +81,12 @@
     justify-content: flex-start;
 }
 
+.flex-right-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 // Widths
 .width-50 {
     width: 50%;
@@ -72,4 +95,17 @@
 // Font weights
 .font-weight-400 {
     font-weight: 400;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+// Text aligns
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-center {
+    text-align: center;
 }

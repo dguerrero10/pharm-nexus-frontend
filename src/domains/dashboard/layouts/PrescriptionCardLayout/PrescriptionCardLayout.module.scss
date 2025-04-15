@@ -1,0 +1,9 @@
+.prescription-card-layout {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 260px);
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 1.5rem;
+    row-gap: 2rem;
+}

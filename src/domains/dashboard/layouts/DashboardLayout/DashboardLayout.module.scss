@@ -4,3 +4,12 @@
     grid-template-columns: 1fr 7fr;
     column-gap: .5rem;
 }
+
+@media screen and (max-width: 769px) {
+    .dashboard-grid-layout {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-bottom: 5.5rem;
+    }
+}
